@@ -21,5 +21,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Need location access to fetch user&apos;s city from current location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Need location access to fetch user&apos;s city from current location</string>
 </dict>
 </plist>
