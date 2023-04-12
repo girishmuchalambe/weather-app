@@ -70,9 +70,6 @@ class WAAPIService {
             print("Error code:\(String(describing: error?.code))")
             print("Error description:\(String(describing: error?.localizedDescription))")
         #endif
-        
-        
-        
         let code = error?.code
         var message = ""
         if code == NSURLErrorTimedOut ||

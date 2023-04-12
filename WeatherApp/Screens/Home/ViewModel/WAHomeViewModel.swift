@@ -29,7 +29,6 @@ protocol WAHomeViewModelProtocol {
 }
 
 class WAHomeViewModel: WAHomeViewModelProtocol {
-    
     private var apiService: WAAPIService
     private var weatherModel: Weather?
     private var tableCellArray: [WeatherInformation] = []
@@ -118,7 +117,6 @@ extension WAHomeViewModel {
         guard let cityText = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         let parameters: [String: String] = ["q": cityText,
                                           "units": "metric"]
-        
         let endpoint = WAWeatherEndPoint.getWeather(parameters: parameters)
         
         apiService.request(from: endpoint) { [weak self] (response) in
@@ -148,7 +146,6 @@ extension WAHomeViewModel {
         let parameters: [String: String] = ["limit": "\(limit)",
                                           "lat": "\(latitude)",
                                           "lon": "\(longitude)"]
-
         let endpoint = WAWeatherEndPoint.getUserLocation(parameters: parameters)
         
         apiService.request(from: endpoint) { (response) in

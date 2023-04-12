@@ -18,7 +18,6 @@ enum LocationUsageType {
 
 class WALocationService: NSObject {
     static let shared = WALocationService()
-
     private var manager = CLLocationManager()
     private var handlers: [LocationUpdated] = []
     
@@ -28,7 +27,6 @@ class WALocationService: NSObject {
             return true
         default:
             return false
-        
         }
     }
 
@@ -36,7 +34,6 @@ class WALocationService: NSObject {
 
     var location: CLLocation? {
         didSet { handleLocation() }
-
     }
 
     private override init() {
