@@ -47,11 +47,13 @@ class WAAPIService {
         var request = URLRequest(url: url)
         request.httpMethod = endpoint.method.rawValue
         session.loadData(from: request) {[weak self] (data, response, error) in
+            guard let self = self else { return }
+            
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200{
                 guard let result = data.map(WAAPIResponse.success) else {return}
                 completionHandler(result)
             } else {
-                guard let apiError = self?.mapError(error: error) else {return}
+                let apiError = self.mapError(error: error)
                 completionHandler(WAAPIResponse.failure(error: apiError))
             }
         }

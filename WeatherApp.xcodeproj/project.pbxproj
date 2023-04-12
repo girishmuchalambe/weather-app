@@ -11,7 +11,6 @@
 		3820E95D29E5100A003DE6E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3820E95B29E5100A003DE6E2 /* Main.storyboard */; };
 		3820E95F29E5100E003DE6E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3820E95E29E5100E003DE6E2 /* Assets.xcassets */; };
 		3820E96229E5100E003DE6E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3820E96029E5100E003DE6E2 /* LaunchScreen.storyboard */; };
-		3820E96D29E5100E003DE6E2 /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820E96C29E5100E003DE6E2 /* WeatherAppTests.swift */; };
 		3820E97729E5100E003DE6E2 /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820E97629E5100E003DE6E2 /* WeatherAppUITests.swift */; };
 		3820E97929E5100E003DE6E2 /* WeatherAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820E97829E5100E003DE6E2 /* WeatherAppUITestsLaunchTests.swift */; };
 		3820E98729E510F8003DE6E2 /* WAHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3820E98629E510F8003DE6E2 /* WAHomeViewController.swift */; };
@@ -33,6 +32,16 @@
 		38B5CA0129E56B1B0046D4C5 /* WAImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CA0029E56B1B0046D4C5 /* WAImageDownloader.swift */; };
 		38B5CA0329E5A1830046D4C5 /* WAAppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CA0229E5A1830046D4C5 /* WAAppRouter.swift */; };
 		38B5CA0529E5A2060046D4C5 /* WAHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B5CA0429E5A2060046D4C5 /* WAHomeRouter.swift */; };
+		38E9E1C929E6835C0043D9BB /* WAAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1C829E6835C0043D9BB /* WAAPIServiceTests.swift */; };
+		38E9E1CC29E6842E0043D9BB /* WANetworkSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1CB29E6842E0043D9BB /* WANetworkSessionMock.swift */; };
+		38E9E1CE29E6848E0043D9BB /* WAEndpointMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1CD29E6848E0043D9BB /* WAEndpointMock.swift */; };
+		38E9E1D029E685210043D9BB /* WANetworkSessionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1CF29E685210043D9BB /* WANetworkSessionHelper.swift */; };
+		38E9E1D229E685410043D9BB /* WAFileUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1D129E685410043D9BB /* WAFileUtil.swift */; };
+		38E9E1D729E689530043D9BB /* WAHomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1D629E689530043D9BB /* WAHomeViewModelTests.swift */; };
+		38E9E1DA29E68A3B0043D9BB /* weather_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = 38E9E1D929E68A3B0043D9BB /* weather_ok.json */; };
+		38E9E1DC29E696A40043D9BB /* WAUserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1DB29E696A40043D9BB /* WAUserLocation.swift */; };
+		38E9E1DE29E6AE070043D9BB /* usercity_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = 38E9E1DD29E6AE070043D9BB /* usercity_ok.json */; };
+		38E9E1E029E6BE4D0043D9BB /* WAJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1DF29E6BE4D0043D9BB /* WAJSONParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +69,6 @@
 		3820E96129E5100E003DE6E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3820E96329E5100E003DE6E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3820E96829E5100E003DE6E2 /* WeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3820E96C29E5100E003DE6E2 /* WeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppTests.swift; sourceTree = "<group>"; };
 		3820E97229E5100E003DE6E2 /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3820E97629E5100E003DE6E2 /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
 		3820E97829E5100E003DE6E2 /* WeatherAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -83,6 +91,16 @@
 		38B5CA0029E56B1B0046D4C5 /* WAImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAImageDownloader.swift; sourceTree = "<group>"; };
 		38B5CA0229E5A1830046D4C5 /* WAAppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAAppRouter.swift; sourceTree = "<group>"; };
 		38B5CA0429E5A2060046D4C5 /* WAHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAHomeRouter.swift; sourceTree = "<group>"; };
+		38E9E1C829E6835C0043D9BB /* WAAPIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAAPIServiceTests.swift; sourceTree = "<group>"; };
+		38E9E1CB29E6842E0043D9BB /* WANetworkSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WANetworkSessionMock.swift; sourceTree = "<group>"; };
+		38E9E1CD29E6848E0043D9BB /* WAEndpointMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAEndpointMock.swift; sourceTree = "<group>"; };
+		38E9E1CF29E685210043D9BB /* WANetworkSessionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WANetworkSessionHelper.swift; sourceTree = "<group>"; };
+		38E9E1D129E685410043D9BB /* WAFileUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAFileUtil.swift; sourceTree = "<group>"; };
+		38E9E1D629E689530043D9BB /* WAHomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAHomeViewModelTests.swift; sourceTree = "<group>"; };
+		38E9E1D929E68A3B0043D9BB /* weather_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = weather_ok.json; sourceTree = "<group>"; };
+		38E9E1DB29E696A40043D9BB /* WAUserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAUserLocation.swift; sourceTree = "<group>"; };
+		38E9E1DD29E6AE070043D9BB /* usercity_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usercity_ok.json; sourceTree = "<group>"; };
+		38E9E1DF29E6BE4D0043D9BB /* WAJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAJSONParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +171,7 @@
 		3820E96B29E5100E003DE6E2 /* WeatherAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				3820E96C29E5100E003DE6E2 /* WeatherAppTests.swift */,
+				38E9E1C629E683370043D9BB /* Classes */,
 			);
 			path = WeatherAppTests;
 			sourceTree = "<group>";
@@ -197,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				3820E9A829E51C41003DE6E2 /* WAWeather.swift */,
+				38E9E1DB29E696A40043D9BB /* WAUserLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -242,6 +261,7 @@
 			children = (
 				3820E9A429E51875003DE6E2 /* WAReachability.swift */,
 				38B5CA0029E56B1B0046D4C5 /* WAImageDownloader.swift */,
+				38E9E1DF29E6BE4D0043D9BB /* WAJSONParser.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -272,6 +292,69 @@
 				38B5C9FA29E555C70046D4C5 /* WALocationService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		38E9E1C629E683370043D9BB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				38E9E1D829E689F00043D9BB /* Resoruces */,
+				38E9E1D329E687040043D9BB /* Screens */,
+				38E9E1CA29E6841D0043D9BB /* Mock */,
+				38E9E1C729E6833F0043D9BB /* Services */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		38E9E1C729E6833F0043D9BB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				38E9E1C829E6835C0043D9BB /* WAAPIServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		38E9E1CA29E6841D0043D9BB /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				38E9E1CB29E6842E0043D9BB /* WANetworkSessionMock.swift */,
+				38E9E1CD29E6848E0043D9BB /* WAEndpointMock.swift */,
+				38E9E1CF29E685210043D9BB /* WANetworkSessionHelper.swift */,
+				38E9E1D129E685410043D9BB /* WAFileUtil.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		38E9E1D329E687040043D9BB /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				38E9E1D429E6870A0043D9BB /* Home */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		38E9E1D429E6870A0043D9BB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				38E9E1D529E687100043D9BB /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		38E9E1D529E687100043D9BB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				38E9E1D629E689530043D9BB /* WAHomeViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		38E9E1D829E689F00043D9BB /* Resoruces */ = {
+			isa = PBXGroup;
+			children = (
+				38E9E1D929E68A3B0043D9BB /* weather_ok.json */,
+				38E9E1DD29E6AE070043D9BB /* usercity_ok.json */,
+			);
+			path = Resoruces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +472,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38E9E1DA29E68A3B0043D9BB /* weather_ok.json in Resources */,
+				38E9E1DE29E6AE070043D9BB /* usercity_ok.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +495,7 @@
 				3820E99429E51613003DE6E2 /* WAAPIService.swift in Sources */,
 				38B5CA0329E5A1830046D4C5 /* WAAppRouter.swift in Sources */,
 				3820E9A729E51B47003DE6E2 /* WAHomeViewModel.swift in Sources */,
+				38E9E1E029E6BE4D0043D9BB /* WAJSONParser.swift in Sources */,
 				38B5CA0529E5A2060046D4C5 /* WAHomeRouter.swift in Sources */,
 				38B5C9FB29E555C70046D4C5 /* WALocationService.swift in Sources */,
 				3820E99A29E516CE003DE6E2 /* WAAPIEndpoint.swift in Sources */,
@@ -417,6 +503,7 @@
 				38B5C9F929E553D40046D4C5 /* WAMoreTableViewCell.swift in Sources */,
 				3820E9A929E51C41003DE6E2 /* WAWeather.swift in Sources */,
 				3820E99729E51658003DE6E2 /* URLSession.swift in Sources */,
+				38E9E1DC29E696A40043D9BB /* WAUserLocation.swift in Sources */,
 				38B5C9FF29E55C4B0046D4C5 /* WAWindInformation.swift in Sources */,
 				38B5C9F529E520650046D4C5 /* UIViewController.swift in Sources */,
 				3820E98729E510F8003DE6E2 /* WAHomeViewController.swift in Sources */,
@@ -432,7 +519,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3820E96D29E5100E003DE6E2 /* WeatherAppTests.swift in Sources */,
+				38E9E1D729E689530043D9BB /* WAHomeViewModelTests.swift in Sources */,
+				38E9E1CE29E6848E0043D9BB /* WAEndpointMock.swift in Sources */,
+				38E9E1D029E685210043D9BB /* WANetworkSessionHelper.swift in Sources */,
+				38E9E1C929E6835C0043D9BB /* WAAPIServiceTests.swift in Sources */,
+				38E9E1D229E685410043D9BB /* WAFileUtil.swift in Sources */,
+				38E9E1CC29E6842E0043D9BB /* WANetworkSessionMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

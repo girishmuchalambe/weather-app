@@ -8,7 +8,7 @@
 import Foundation
 struct WAConstants{
     struct API {
-        static let BASEURL = "https://api.openweathermap.org/data/2.5/"
+        static let BASEURL = "https://api.openweathermap.org/"
         static let APPKEY = "310235c5bb0f66c95e9fcf4ab04340ba"
         static let WEATHER_CONDITION_IMAGE_BASEURL = "https://openweathermap.org/img/wn/%@@2x.png"
     }
@@ -23,21 +23,27 @@ struct WAConstants{
         static let OK = NSLocalizedString(WAConstants.Localization.OK, comment: "")
         static let LOW = NSLocalizedString(WAConstants.Localization.LOW, comment: "")
         static let HIGH = NSLocalizedString(WAConstants.Localization.HIGH, comment: "")
+        static let LOADING_MESSAGE_USER_LOCATION = NSLocalizedString(WAConstants.Localization.LOADING_MESSAGE_USER_LOCATION, comment: "")
     }
     
     struct Localization {
         static let NO_INTERNET_CONNECTION = "noInternetConnection"
         static let API_FAILED_ERROR = "APIFailed"
         static let EMAIL_APP_ERROR = "emailAppError"
-        static let LOADING_MESSAGE = "loadingMessage"
+        static let LOADING_MESSAGE = "loadingMessageWeather"
         static let HOME_SCREEN_TITLE = "home_navigation_title"
         static let WIND_INFORMATION = "windInformation"
         static let OK = "ok"
         static let LOW = "low"
         static let HIGH = "high"
+        static let LOADING_MESSAGE_USER_LOCATION = "loadingMessageUserLocation"
     }
     
     struct Storage {
         static let LAST_SEACHED_CITY = "LastSearchCity"
+    }
+    
+    struct Symbol {
+        static let degree = "\u{00B0}"
     }
 }

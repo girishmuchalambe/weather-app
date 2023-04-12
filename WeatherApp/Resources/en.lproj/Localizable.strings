@@ -9,7 +9,8 @@
 "home_navigation_title" = "Today's Weather";
 "noInternetConnection" = "No Internet Connection ... please try again";
 "APIFailed" = "Something went wrong...please try again";
-"loadingMessage" = "Please wait ...";
+"loadingMessageWeather" = "Fetching weather information...please wait";
+"loadingMessageUserLocation" = "Fetching user's city from current location..please wait";
 "windInformation" = "Wind Information";
 "ok" = "Ok";
 "low" = "Low:";

@@ -14,7 +14,7 @@ extension UIViewController{
     /// - Parameters:
     ///   - message: Loading message to be displayed. Defualt will be "Please wait..."
     func showLoading(message: String = WAConstants.Messages.LOADING_MESSAGE){
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "\n\n" + message, preferredStyle: .alert)
         alert.view.tintColor = UIColor.black
         
         let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
@@ -25,8 +25,8 @@ extension UIViewController{
         NSLayoutConstraint.activate([
             loadingIndicator.widthAnchor.constraint(equalToConstant: 50),
             loadingIndicator.heightAnchor.constraint(equalToConstant: 50),
-            loadingIndicator.centerYAnchor.constraint(equalTo: alert.view.centerYAnchor),
-            loadingIndicator.leftAnchor.constraint(equalTo: alert.view.leftAnchor, constant: 10)
+            loadingIndicator.centerXAnchor.constraint(equalTo: alert.view.centerXAnchor),
+            loadingIndicator.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 10)
             ])
         DispatchQueue.main.async {[weak self] in
             self?.present(alert, animated: true, completion: nil)

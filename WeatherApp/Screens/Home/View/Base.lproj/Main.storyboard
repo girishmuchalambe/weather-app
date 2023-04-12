@@ -34,14 +34,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="GE5-p6-6Sx">
-                                <rect key="frame" x="20" y="113" width="353" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter city name to get weather" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="GE5-p6-6Sx">
+                                <rect key="frame" x="20" y="113" width="303" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="USB-bx-QLn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Nh-6L-xEP">
+                                <rect key="frame" x="333" y="113" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Pjb-1b-mE9"/>
+                                    <constraint firstAttribute="width" constant="40" id="eBH-pR-4b4"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="location.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="showCurrentLocationWeather" destination="BYZ-38-t0r" eventType="touchUpInside" id="DuX-Tn-YbJ"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uv7-FO-WgX">
                                 <rect key="frame" x="20" y="173" width="353" height="635"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -136,13 +149,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                         <constraints>
+                            <constraint firstItem="6Nh-6L-xEP" firstAttribute="centerY" secondItem="GE5-p6-6Sx" secondAttribute="centerY" id="6no-Ys-zPR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uv7-FO-WgX" secondAttribute="trailing" constant="20" id="A9D-t8-cPO"/>
                             <constraint firstItem="GE5-p6-6Sx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="ARp-ty-AsR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uv7-FO-WgX" secondAttribute="bottom" constant="10" id="DPP-dP-QTv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Nh-6L-xEP" secondAttribute="trailing" constant="20" id="IVX-nc-5pi"/>
                             <constraint firstItem="uv7-FO-WgX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Nmv-2w-fL8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GE5-p6-6Sx" secondAttribute="trailing" constant="20" id="h76-Fk-nMB"/>
                             <constraint firstItem="uv7-FO-WgX" firstAttribute="top" secondItem="GE5-p6-6Sx" secondAttribute="bottom" constant="20" id="sYZ-MB-684"/>
                             <constraint firstItem="GE5-p6-6Sx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="uYH-8K-9PN"/>
+                            <constraint firstItem="6Nh-6L-xEP" firstAttribute="leading" secondItem="GE5-p6-6Sx" secondAttribute="trailing" constant="10" id="zca-2M-FAI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MSP-Tv-3Gp"/>
@@ -162,6 +177,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="location.fill" catalog="system" width="128" height="119"/>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
