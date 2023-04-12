@@ -15,7 +15,11 @@
 "ok" = "Ok";
 "low" = "Low:";
 "high" = "High:";
-"Speed" = "Speed:";
-"Degree" = "Degree:";
-"Gust" = "Gust:";
+"speed" = "Speed:";
+"degree" = "Degree:";
+"gust" = "Gust:";
+"moreInformation" = "More Information";
+"humidity" = "Humidity:";
+"visibility" = "Visibility:";
+
 

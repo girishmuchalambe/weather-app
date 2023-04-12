@@ -9,9 +9,10 @@ import UIKit
 
 class WAMoreTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel?
-    var viewModel: String? {
+    
+    var viewModel: WeatherInformation? {
         didSet {
-            titleLabel?.text = viewModel
+            titleLabel?.text = viewModel?.title
         }
     }
 }

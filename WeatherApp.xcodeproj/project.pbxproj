@@ -42,6 +42,9 @@
 		38E9E1DC29E696A40043D9BB /* WAUserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1DB29E696A40043D9BB /* WAUserLocation.swift */; };
 		38E9E1DE29E6AE070043D9BB /* usercity_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = 38E9E1DD29E6AE070043D9BB /* usercity_ok.json */; };
 		38E9E1E029E6BE4D0043D9BB /* WAJSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1DF29E6BE4D0043D9BB /* WAJSONParser.swift */; };
+		38E9E1E229E6D2E00043D9BB /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1E129E6D2E00043D9BB /* Double.swift */; };
+		38E9E1E429E6D58E0043D9BB /* WAWeatherInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1E329E6D58E0043D9BB /* WAWeatherInformation.swift */; };
+		38E9E1E629E6D8CD0043D9BB /* WAMoreInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9E1E529E6D8CD0043D9BB /* WAMoreInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,9 @@
 		38E9E1DB29E696A40043D9BB /* WAUserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAUserLocation.swift; sourceTree = "<group>"; };
 		38E9E1DD29E6AE070043D9BB /* usercity_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = usercity_ok.json; sourceTree = "<group>"; };
 		38E9E1DF29E6BE4D0043D9BB /* WAJSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAJSONParser.swift; sourceTree = "<group>"; };
+		38E9E1E129E6D2E00043D9BB /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		38E9E1E329E6D58E0043D9BB /* WAWeatherInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAWeatherInformation.swift; sourceTree = "<group>"; };
+		38E9E1E529E6D8CD0043D9BB /* WAMoreInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WAMoreInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +222,7 @@
 			children = (
 				3820E9A829E51C41003DE6E2 /* WAWeather.swift */,
 				38E9E1DB29E696A40043D9BB /* WAUserLocation.swift */,
+				38E9E1E329E6D58E0043D9BB /* WAWeatherInformation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,6 +242,7 @@
 				3820E9A029E5183C003DE6E2 /* Error.swift */,
 				38B5C9F429E520650046D4C5 /* UIViewController.swift */,
 				38B5C9FC29E556590046D4C5 /* UIApplication.swift */,
+				38E9E1E129E6D2E00043D9BB /* Double.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 				3820E98629E510F8003DE6E2 /* WAHomeViewController.swift */,
 				38B5C9F829E553D40046D4C5 /* WAMoreTableViewCell.swift */,
 				38B5C9FE29E55C4B0046D4C5 /* WAWindInformation.swift */,
+				38E9E1E529E6D8CD0043D9BB /* WAMoreInformation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -494,6 +503,7 @@
 				38B5C9FD29E556590046D4C5 /* UIApplication.swift in Sources */,
 				3820E99429E51613003DE6E2 /* WAAPIService.swift in Sources */,
 				38B5CA0329E5A1830046D4C5 /* WAAppRouter.swift in Sources */,
+				38E9E1E629E6D8CD0043D9BB /* WAMoreInformation.swift in Sources */,
 				3820E9A729E51B47003DE6E2 /* WAHomeViewModel.swift in Sources */,
 				38E9E1E029E6BE4D0043D9BB /* WAJSONParser.swift in Sources */,
 				38B5CA0529E5A2060046D4C5 /* WAHomeRouter.swift in Sources */,
@@ -507,10 +517,12 @@
 				38B5C9FF29E55C4B0046D4C5 /* WAWindInformation.swift in Sources */,
 				38B5C9F529E520650046D4C5 /* UIViewController.swift in Sources */,
 				3820E98729E510F8003DE6E2 /* WAHomeViewController.swift in Sources */,
+				38E9E1E429E6D58E0043D9BB /* WAWeatherInformation.swift in Sources */,
 				3820E99C29E516F6003DE6E2 /* WAWeatherEndPoint.swift in Sources */,
 				3820E9A129E5183C003DE6E2 /* Error.swift in Sources */,
 				3820E9A529E51875003DE6E2 /* WAReachability.swift in Sources */,
 				38B5CA0129E56B1B0046D4C5 /* WAImageDownloader.swift in Sources */,
+				38E9E1E229E6D2E00043D9BB /* Double.swift in Sources */,
 				3820E99F29E5172C003DE6E2 /* WAConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -155,7 +155,7 @@ extension WAHomeViewController: UITableViewDataSource {
         guard let moreCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.moreTableViewCell.rawValue, for: indexPath) as? WAMoreTableViewCell else {
             return UITableViewCell()
         }
-        moreCell.viewModel = WAConstants.Messages.WIND_INFORMATION
+        moreCell.viewModel = viewModel?.cellItem(for: indexPath)
         return moreCell
     }
 }
@@ -163,7 +163,17 @@ extension WAHomeViewController: UITableViewDataSource {
 //MARK: Tableview Delegate
 extension WAHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let windInformation = UIHostingController(rootView: WAWindInformation(wind: viewModel?.wind))
-        navigationController?.pushViewController(windInformation, animated: true)
+        guard let viewModel = viewModel else { return }
+        let informationType = viewModel.cellItem(for: indexPath)
+        
+        switch informationType.weatherCellType {
+        case .wind:
+            let windInformation = UIHostingController(rootView: WAWindInformation(wind: viewModel.wind))
+            navigationController?.pushViewController(windInformation, animated: true)
+        case .more:
+            let moreInformation = UIHostingController(rootView: WAMoreInformation(humidity: viewModel.humidity, visibility: viewModel.visibility))
+            navigationController?.pushViewController(moreInformation, animated: true)
+        }
+        
     }
 }
