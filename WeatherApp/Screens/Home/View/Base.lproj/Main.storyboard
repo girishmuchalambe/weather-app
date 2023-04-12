@@ -58,6 +58,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uv7-FO-WgX">
                                 <rect key="frame" x="20" y="173" width="353" height="635"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="asM-UB-WbR">
                                     <rect key="frame" x="0.0" y="0.0" width="353" height="280"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -121,8 +122,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="322.66666666666669" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsB-5i-An0">
-                                                    <rect key="frame" x="20" y="22" width="0.0" height="0.0"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XsB-5i-An0">
+                                                    <rect key="frame" x="20" y="22" width="292.66666666666669" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -131,7 +132,7 @@
                                             <constraints>
                                                 <constraint firstItem="XsB-5i-An0" firstAttribute="leading" secondItem="Msw-Qh-c5A" secondAttribute="leading" constant="20" id="EnN-Gm-PAJ"/>
                                                 <constraint firstItem="XsB-5i-An0" firstAttribute="centerY" secondItem="Msw-Qh-c5A" secondAttribute="centerY" id="k9i-bx-j2i"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XsB-5i-An0" secondAttribute="trailing" constant="10" id="vLR-Ms-cwS"/>
+                                                <constraint firstAttribute="trailing" secondItem="XsB-5i-An0" secondAttribute="trailing" constant="10" id="vLR-Ms-cwS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

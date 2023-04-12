@@ -9,6 +9,7 @@ import Foundation
 struct WAConstants{
     struct API {
         static let BASEURL = "https://api.openweathermap.org/"
+        //TODO: APPKEY can be saved in keychain.
         static let APPKEY = "310235c5bb0f66c95e9fcf4ab04340ba"
         static let WEATHER_CONDITION_IMAGE_BASEURL = "https://openweathermap.org/img/wn/%@@2x.png"
     }
@@ -24,6 +25,12 @@ struct WAConstants{
         static let LOW = NSLocalizedString(WAConstants.Localization.LOW, comment: "")
         static let HIGH = NSLocalizedString(WAConstants.Localization.HIGH, comment: "")
         static let LOADING_MESSAGE_USER_LOCATION = NSLocalizedString(WAConstants.Localization.LOADING_MESSAGE_USER_LOCATION, comment: "")
+        static let MORE_INFORMATION = NSLocalizedString(WAConstants.Localization.MORE_INFORMATION, comment: "")
+        static let SPEED = NSLocalizedString(WAConstants.Localization.SPEED, comment: "")
+        static let DEGREE = NSLocalizedString(WAConstants.Localization.DEGREE, comment: "")
+        static let GUST = NSLocalizedString(WAConstants.Localization.GUST, comment: "")
+        static let HUMIDITY = NSLocalizedString(WAConstants.Localization.HUMIDITY, comment: "")
+        static let VISIBILITY = NSLocalizedString(WAConstants.Localization.VISIBILITY, comment: "")
     }
     
     struct Localization {
@@ -37,6 +44,12 @@ struct WAConstants{
         static let LOW = "low"
         static let HIGH = "high"
         static let LOADING_MESSAGE_USER_LOCATION = "loadingMessageUserLocation"
+        static let MORE_INFORMATION = "moreInformation"
+        static let SPEED = "speed"
+        static let DEGREE = "degree"
+        static let GUST = "gust"
+        static let HUMIDITY = "humidity"
+        static let VISIBILITY = "visibility"
     }
     
     struct Storage {

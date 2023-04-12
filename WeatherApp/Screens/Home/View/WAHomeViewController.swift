@@ -13,7 +13,6 @@ class WAHomeViewController: UIViewController {
     private enum CellIdentifier: String {
         case moreTableViewCell = "MoreTableViewCell"
     }
-    
     var viewModel: WAHomeViewModelProtocol?
     @IBOutlet weak var searchTextField: UITextField?
     @IBOutlet weak var cityNameLabel: UILabel?
@@ -76,16 +75,14 @@ extension WAHomeViewController {
     // TODO: The loading can be improved by showing loading view once and change the message based on API call
     private func fetchWeatherFromUserLocation() {
         guard let viewModel = viewModel else { return }
-//        showLoading(message: WAConstants.Messages.LOADING_MESSAGE_USER_LOCATION)
         viewModel.fetchUsersCurrentCity(latitude: viewModel.latitude, longitude: viewModel.longitude, appKey: WAConstants.API.APPKEY, limit: 1, completionHandler: {[weak self] result in
             guard let self = self else { return }
-//            self.hideLoading()
             switch result {
             case .success(let userLocation):
                 guard let userLocation = userLocation as? WAUserLocationElement else { return }
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
                     self.searchTextField?.text = userLocation.name
-                    self.fetchWeatherData(withCity: userLocation.name)
+                    self.fetchWeatherData(withCity: userLocation.name ?? "")
                 }
             //TODO: The error information can be shown to user if required
             case .failure(_):break
@@ -155,7 +152,7 @@ extension WAHomeViewController: UITableViewDataSource {
         guard let moreCell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.moreTableViewCell.rawValue, for: indexPath) as? WAMoreTableViewCell else {
             return UITableViewCell()
         }
-        moreCell.viewModel = WAConstants.Messages.WIND_INFORMATION
+        moreCell.viewModel = viewModel?.cellItem(for: indexPath)
         return moreCell
     }
 }
@@ -163,7 +160,16 @@ extension WAHomeViewController: UITableViewDataSource {
 //MARK: Tableview Delegate
 extension WAHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let windInformation = UIHostingController(rootView: WAWindInformation(wind: viewModel?.wind))
-        navigationController?.pushViewController(windInformation, animated: true)
+        guard let viewModel = viewModel else { return }
+        let informationType = viewModel.cellItem(for: indexPath)
+        
+        switch informationType.weatherCellType {
+        case .wind:
+            let windInformation = UIHostingController(rootView: WAWindInformation(wind: viewModel.wind))
+            navigationController?.pushViewController(windInformation, animated: true)
+        case .more:
+            let moreInformation = UIHostingController(rootView: WAMoreInformation(humidity: viewModel.humidity, visibility: viewModel.visibility))
+            navigationController?.pushViewController(moreInformation, animated: true)
+        }
     }
 }

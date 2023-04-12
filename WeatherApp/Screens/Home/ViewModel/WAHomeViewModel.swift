@@ -20,19 +20,18 @@ protocol WAHomeViewModelProtocol {
     var numberOfRows: Int { get }
     var latitude: Double { get }
     var longitude: Double { get }
+    var humidity: Int { get }
+    var visibility: Int { get }
     
     func fetchWeather(city:String, appKey: String, completionHandler: @escaping (WAAPIResult<Any>) -> Void)
     func fetchUsersCurrentCity(latitude: Double, longitude: Double, appKey: String, limit:Int, completionHandler: @escaping (WAAPIResult<Any>) -> Void)
+    func cellItem(for indexPath: IndexPath) -> WeatherInformation
 }
 
 class WAHomeViewModel: WAHomeViewModelProtocol {
-    func fetchUsersCurrentCity(limit: Int, latitude: Double, longitude: Double, completionHandler: @escaping (WAAPIResult<Any>) -> Void) {
-        
-    }
-    
-    
     private var apiService: WAAPIService
     private var weatherModel: Weather?
+    private var tableCellArray: [WeatherInformation] = []
     
     init(apiService: WAAPIService = WAAPIService()) {
         self.apiService = apiService
@@ -51,17 +50,17 @@ class WAHomeViewModel: WAHomeViewModelProtocol {
     }
     
     var currentTemperature: String {
-        "\(String(describing: weatherModel?.main?.temp ?? 0.0)) ".appending(WAConstants.Symbol.degree)
+        weatherModel?.main?.temp?.degreeString() ?? ""
     }
     var minimumTemperature: String {
-        "\(String(describing: weatherModel?.main?.tempMin ?? 0.0)) ".appending(WAConstants.Symbol.degree)
+        weatherModel?.main?.tempMin?.degreeString() ?? ""
     }
     var maximumTemperature: String {
-        "\(String(describing: weatherModel?.main?.tempMax ?? 0.0)) ".appending(WAConstants.Symbol.degree)
+        weatherModel?.main?.tempMax?.degreeString() ?? ""
     }
     
     var weatherDescription: String {
-        weatherModel?.weather?.first?.description ?? ""
+        weatherModel?.weather?.first?.description?.capitalized ?? ""
     }
     
     var lastSearchCity: String {
@@ -73,7 +72,7 @@ class WAHomeViewModel: WAHomeViewModelProtocol {
     }
     
     var numberOfRows: Int {
-        weatherModel?.wind == nil ? 0 : 1
+        tableCellArray.count
     }
     
     var latitude: Double {
@@ -82,6 +81,26 @@ class WAHomeViewModel: WAHomeViewModelProtocol {
     
     var longitude: Double {
         WALocationService.shared.location?.coordinate.longitude ?? 0.0
+    }
+    
+    var humidity: Int {
+        weatherModel?.main?.humidity ?? 0
+    }
+    
+    var visibility: Int {
+        (weatherModel?.visibility ?? 0) / 100
+    }
+    
+    func cellItem(for indexPath: IndexPath) -> WeatherInformation {
+        tableCellArray[indexPath.row]
+    }
+    
+    private func createTableCellArray() {
+        tableCellArray.removeAll()
+        if (weatherModel?.wind) != nil {
+            tableCellArray.append(WeatherInformation(title: WAConstants.Messages.WIND_INFORMATION, weatherCellType: .wind))
+        }
+        tableCellArray.append(WeatherInformation(title: WAConstants.Messages.MORE_INFORMATION, weatherCellType: .more))
     }
 }
 
@@ -96,9 +115,9 @@ extension WAHomeViewModel {
     /// It returns the success or failure based on the response recevied from API
     func fetchWeather(city:String, appKey: String, completionHandler: @escaping (WAAPIResult<Any>) -> Void) {
         guard let cityText = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
-        let queryString = "?q=\(String(describing: cityText))&appid=\(appKey)&units=metric"
-        
-        let endpoint = WAWeatherEndPoint.getWeather(parameter: queryString)
+        let parameters: [String: String] = ["q": cityText,
+                                          "units": "metric"]
+        let endpoint = WAWeatherEndPoint.getWeather(parameters: parameters)
         
         apiService.request(from: endpoint) { [weak self] (response) in
             guard let self = self else { return }
@@ -106,6 +125,7 @@ extension WAHomeViewModel {
             case .success(let data):
                 self.weatherModel = try? WAJSONParser.parseResponse(from: data, type: Weather.self)
                 UserDefaults.standard.set(city, forKey: WAConstants.Storage.LAST_SEACHED_CITY)
+                self.createTableCellArray()
                 completionHandler(WAAPIResult.success(nil))
                 break
             case .failure(let error):
@@ -123,9 +143,10 @@ extension WAHomeViewModel {
     /// - Returns:
     /// It returns the success or failure based on the response recevied from API
     func fetchUsersCurrentCity(latitude: Double, longitude: Double, appKey: String, limit: Int, completionHandler: @escaping (WAAPIResult<Any>) -> Void) {
-        let queryString = "?limit=1&lat=\(latitude)&lon=\(longitude)&appid=\(appKey)"
-        
-        let endpoint = WAWeatherEndPoint.getUserLocation(parameter: queryString)
+        let parameters: [String: String] = ["limit": "\(limit)",
+                                          "lat": "\(latitude)",
+                                          "lon": "\(longitude)"]
+        let endpoint = WAWeatherEndPoint.getUserLocation(parameters: parameters)
         
         apiService.request(from: endpoint) { (response) in
             switch response {
@@ -140,3 +161,4 @@ extension WAHomeViewModel {
         }
     }
 }
+

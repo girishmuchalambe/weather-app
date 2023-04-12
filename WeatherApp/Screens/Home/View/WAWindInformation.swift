@@ -17,9 +17,9 @@ struct WAWindInformation: View {
                 .bold()
             Divider()
                 .overlay(.black)
-            Text("Speed: " + "\(wind?.speed ?? 0.0)")
-            Text("Degree: " + "\(wind?.deg ?? 0)")
-            Text("Gust: " + "\(wind?.gust ?? 0.0)")
+            Text("\(WAConstants.Messages.SPEED) " + "\(wind?.speed ?? 0.0)")
+            Text("\(WAConstants.Messages.DEGREE) " + "\(wind?.deg ?? 0)")
+            Text("\(WAConstants.Messages.GUST) " + "\(wind?.gust ?? 0.0)")
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

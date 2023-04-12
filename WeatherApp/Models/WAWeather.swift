@@ -9,7 +9,6 @@ import Foundation
 
 // MARK: - Weather
 struct Weather: Codable {
-    let coord: Coord?
     let weather: [WeatherElement]?
     let base: String?
     let main: Main?
@@ -18,12 +17,6 @@ struct Weather: Codable {
     let dt: Int?
     let timezone, id: Int?
     let name: String?
-    let cod: Int?
-}
-
-// MARK: - Coord
-struct Coord: Codable {
-    let lon, lat: Double?
 }
 
 // MARK: - Main

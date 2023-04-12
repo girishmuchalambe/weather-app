@@ -40,7 +40,7 @@ class WAAPIService {
     /// - Returns:
     ///   - APIResponse - Contains the response data on successful execution else error
     func request(from endpoint: WAAPIEndpoint, completionHandler: @escaping (WAAPIResponse) -> Void){
-        let urlString = WAConstants.API.BASEURL + endpoint.pathFragment
+        let urlString = WAConstants.API.BASEURL + endpoint.pathFragment + "&appid=\(WAConstants.API.APPKEY)"
         guard let url = URL(string: urlString) else {
             return
         }
@@ -70,9 +70,6 @@ class WAAPIService {
             print("Error code:\(String(describing: error?.code))")
             print("Error description:\(String(describing: error?.localizedDescription))")
         #endif
-        
-        
-        
         let code = error?.code
         var message = ""
         if code == NSURLErrorTimedOut ||

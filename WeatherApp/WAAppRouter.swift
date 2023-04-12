@@ -17,7 +17,6 @@ struct AppRouter {
     static func setRootView(viewController: UIViewController?) {
         guard let viewController = viewController else {return}
         AppRouter.getWindow().rootViewController = viewController
-        
     }
 
     static func getWindow() -> UIWindow {

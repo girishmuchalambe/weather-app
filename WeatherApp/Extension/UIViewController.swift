@@ -16,7 +16,6 @@ extension UIViewController{
     func showLoading(message: String = WAConstants.Messages.LOADING_MESSAGE){
         let alert = UIAlertController(title: nil, message: "\n\n" + message, preferredStyle: .alert)
         alert.view.tintColor = UIColor.black
-        
         let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         loadingIndicator.hidesWhenStopped = true
