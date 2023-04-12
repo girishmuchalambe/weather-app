@@ -1,0 +1,17 @@
+[{
+    "name": "City of Westminster",
+    "local_names": {
+        "ko": "시티오브웨스트민스터",
+        "en": "City of Westminster",
+        "fr": "Cité de Westminster",
+        "ru": "Вестминстер",
+        "mk": "Град Вестминстер",
+        "cy": "San Steffan",
+        "be": "Вэстмінстэр",
+        "he": "וסטמינסטר"
+    },
+    "lat": 51.4973206,
+    "lon": -0.137149,
+    "country": "GB",
+    "state": "England"
+}]

@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  WeatherApp
+
+  Created by Girish Muchalambe on 11/04/23.
+  
+*/
+
+"home_navigation_title" = "Today's Weather";
+"noInternetConnection" = "No Internet Connection ... please try again";
+"APIFailed" = "Something went wrong...please try again";
+"loadingMessageWeather" = "Fetching weather information...please wait";
+"loadingMessageUserLocation" = "Fetching user's city from current location..please wait";
+"windInformation" = "Wind Information";
+"ok" = "Ok";
+"low" = "Low:";
+"high" = "High:";
+"Speed" = "Speed:";
+"Degree" = "Degree:";
+"Gust" = "Gust:";
+
