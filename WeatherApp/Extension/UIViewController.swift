@@ -13,7 +13,7 @@ extension UIViewController{
     ///
     /// - Parameters:
     ///   - message: Loading message to be displayed. Defualt will be "Please wait..."
-    func showLoading(message: String = Constanst.Messages.LOADING_MESSAGE){
+    func showLoading(message: String = WAConstants.Messages.LOADING_MESSAGE){
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.view.tintColor = UIColor.black
         
@@ -45,8 +45,9 @@ extension UIViewController{
     ///   - message: Message displayed over alert
     func alert(message: String) {
         let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Constanst.Messages.OK, style: .default, handler: nil))
-        DispatchQueue.main.async {[weak self] in
+        alert.addAction(UIAlertAction(title: WAConstants.Messages.OK, style: .default, handler: nil))
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.present(alert, animated: true, completion: nil)
         }
     }

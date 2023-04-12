@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MoreTableViewCell: UITableViewCell {
+class WAMoreTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel?
     var viewModel: String? {
         didSet {

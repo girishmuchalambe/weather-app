@@ -29,7 +29,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="WAHomeViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,7 +101,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MoreTableViewCell" id="Qvo-lw-mc2" customClass="MoreTableViewCell" customModule="WeatherApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MoreTableViewCell" id="Qvo-lw-mc2" customClass="WAMoreTableViewCell" customModule="WeatherApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="330" width="353" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qvo-lw-mc2" id="Msw-Qh-c5A">
@@ -152,6 +152,7 @@
                         <outlet property="currentTemperatureLabel" destination="lcI-wy-KEV" id="N2V-KE-xn2"/>
                         <outlet property="minMaxTemperatureLabel" destination="4Hj-4D-ef3" id="Ooh-db-uCd"/>
                         <outlet property="searchTextField" destination="GE5-p6-6Sx" id="9XI-ff-8Ch"/>
+                        <outlet property="tableView" destination="uv7-FO-WgX" id="5Ip-Ao-16N"/>
                         <outlet property="weatherDescriptionLabel" destination="PI5-4n-VeA" id="nW0-Xy-TyS"/>
                     </connections>
                 </viewController>

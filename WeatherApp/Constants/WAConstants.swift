@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Constanst{
+struct WAConstants{
     struct API {
         static let BASEURL = "https://api.openweathermap.org/data/2.5/"
         static let APPKEY = "310235c5bb0f66c95e9fcf4ab04340ba"
@@ -14,15 +14,15 @@ struct Constanst{
     }
     
     struct Messages {
-        static let API_FAILED_ERROR = NSLocalizedString(Constanst.Localization.API_FAILED_ERROR, comment: "")
-        static let NO_INTERNET_CONNECTION = NSLocalizedString(Constanst.Localization.NO_INTERNET_CONNECTION, comment: "")
-        static let EMAIL_APP_ERROR = NSLocalizedString(Constanst.Localization.EMAIL_APP_ERROR, comment: "")
-        static let LOADING_MESSAGE = NSLocalizedString(Constanst.Localization.LOADING_MESSAGE, comment: "")
-        static let HOME_SCREEN_TITLE = NSLocalizedString(Constanst.Localization.HOME_SCREEN_TITLE, comment: "")
-        static let WIND_INFORMATION = NSLocalizedString(Constanst.Localization.WIND_INFORMATION, comment: "")
-        static let OK = NSLocalizedString(Constanst.Localization.OK, comment: "")
-        static let LOW = NSLocalizedString(Constanst.Localization.LOW, comment: "")
-        static let HIGH = NSLocalizedString(Constanst.Localization.HIGH, comment: "")
+        static let API_FAILED_ERROR = NSLocalizedString(WAConstants.Localization.API_FAILED_ERROR, comment: "")
+        static let NO_INTERNET_CONNECTION = NSLocalizedString(WAConstants.Localization.NO_INTERNET_CONNECTION, comment: "")
+        static let EMAIL_APP_ERROR = NSLocalizedString(WAConstants.Localization.EMAIL_APP_ERROR, comment: "")
+        static let LOADING_MESSAGE = NSLocalizedString(WAConstants.Localization.LOADING_MESSAGE, comment: "")
+        static let HOME_SCREEN_TITLE = NSLocalizedString(WAConstants.Localization.HOME_SCREEN_TITLE, comment: "")
+        static let WIND_INFORMATION = NSLocalizedString(WAConstants.Localization.WIND_INFORMATION, comment: "")
+        static let OK = NSLocalizedString(WAConstants.Localization.OK, comment: "")
+        static let LOW = NSLocalizedString(WAConstants.Localization.LOW, comment: "")
+        static let HIGH = NSLocalizedString(WAConstants.Localization.HIGH, comment: "")
     }
     
     struct Localization {

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-protocol HomeViewModelProtocol {
+protocol WAHomeViewModelProtocol {
     var cityName: String { get }
     var imageName: String { get }
     var imageNumber: NSNumber { get }
@@ -16,24 +16,25 @@ protocol HomeViewModelProtocol {
     var weatherDescription: String { get }
     var lastSearchCity: String { get }
     var wind: Wind? { get }
+    var numberOfRows: Int { get }
     
-    func fetchWeather(city:String, completionHandler: @escaping (APIResult<Any>) -> Void)
+    func fetchWeather(city:String, completionHandler: @escaping (WAAPIResult<Any>) -> Void)
 }
 
-class HomeViewModel: HomeViewModelProtocol {
-    private var apiManager: APIManager
+class WAHomeViewModel: WAHomeViewModelProtocol {
+    private var apiManager: WAAPIService
     private var weatherModel: Weather?
     
-    init(apiManager: APIManager = APIManager()) {
+    init(apiManager: WAAPIService = WAAPIService()) {
         self.apiManager = apiManager
-        LocationManager.shared.requestAuthorizationIfNeeded()
+        WALocationService.shared.requestAuthorizationIfNeeded()
     }
     
     var cityName: String {
         weatherModel?.name ?? ""
     }
     var imageName: String {
-        String(format: Constanst.API.WEATHER_CONDITION_IMAGE_BASEURL, weatherModel?.weather?.first?.icon ?? "")
+        String(format: WAConstants.API.WEATHER_CONDITION_IMAGE_BASEURL, weatherModel?.weather?.first?.icon ?? "")
     }
     
     var imageNumber: NSNumber {
@@ -55,12 +56,17 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     var lastSearchCity: String {
-        UserDefaults.standard.string(forKey: Constanst.Storage.LAST_SEACHED_CITY) ?? ""
+        UserDefaults.standard.string(forKey: WAConstants.Storage.LAST_SEACHED_CITY) ?? ""
     }
     
     var wind: Wind? {
         weatherModel?.wind
     }
+    
+    var numberOfRows: Int {
+        weatherModel == nil ? 0 : 1
+    }
+    
     /// Get the weather data based on city provided
     ///
     /// - Parameters:
@@ -68,24 +74,24 @@ class HomeViewModel: HomeViewModelProtocol {
     ///
     /// - Returns:
     /// It returns the success or failure based on the response recevied from API
-    func fetchWeather(city:String, completionHandler: @escaping (APIResult<Any>) -> Void) {
+    func fetchWeather(city:String, completionHandler: @escaping (WAAPIResult<Any>) -> Void) {
         
         guard let cityText = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
-        let queryString = "q=\(String(describing: cityText))&appid=\(Constanst.API.APPKEY)"
+        let queryString = "q=\(String(describing: cityText))&appid=\(WAConstants.API.APPKEY)"
         
-        let endpoint = WeatherEndPoint.getWeather(parameter: queryString)
+        let endpoint = WAWeatherEndPoint.getWeather(parameter: queryString)
         
         apiManager.request(from: endpoint) { [weak self] (response) in
             switch response {
             case .success(let data):
                 self?.weatherModel = self?.parseResponse(data: data)
-                UserDefaults.standard.set(city, forKey: Constanst.Storage.LAST_SEACHED_CITY)
-                completionHandler(APIResult.success(nil))
+                UserDefaults.standard.set(city, forKey: WAConstants.Storage.LAST_SEACHED_CITY)
+                completionHandler(WAAPIResult.success(nil))
                 break
             case .failure(let error):
-               completionHandler(APIResult.failure(error))
+                completionHandler(WAAPIResult.failure(error))
                 break
-           }
+            }
         }
     }
     
@@ -97,16 +103,16 @@ class HomeViewModel: HomeViewModelProtocol {
     /// - Returns:
     /// The weather model or nil
     
-    func parseResponse(data: Data?)-> Weather?{
+    private func parseResponse(data: Data?)-> Weather?{
         guard let weatherData = data else { return nil }
         do {
             let decoder = JSONDecoder()
             let weatherModel: Weather = try decoder.decode(Weather.self, from: weatherData)
             return weatherModel
         } catch let error {
-            #if DEBUG
+        #if DEBUG
             print(error.localizedDescription)
-            #endif
+        #endif
         }
         return nil
     }

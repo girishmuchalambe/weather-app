@@ -16,12 +16,12 @@ enum LocationUsageType {
     case always
 }
 
-class LocationManager: NSObject {
-    static let shared = LocationManager()
+class WALocationService: NSObject {
+    static let shared = WALocationService()
 
     private var manager = CLLocationManager()
     private var handlers: [LocationUpdated] = []
-
+    
     var isAuthorized: Bool {
         switch manager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
@@ -39,16 +39,16 @@ class LocationManager: NSObject {
 
     }
 
-    override init() {
+    private override init() {
         super.init()
-
+        
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         manager.pausesLocationUpdatesAutomatically = true
-        currentLocation()
+        startMonitoring()
     }
 
-    func currentLocation() {
+    func startMonitoring() {
         if !isAuthorized {
             manager.stopUpdatingLocation()
             return
@@ -82,14 +82,14 @@ class LocationManager: NSObject {
     }
 }
 
-extension LocationManager: CLLocationManagerDelegate {
+extension WALocationService: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let last = locations.last else { return }
         location = last
     }
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        currentLocation()
+        startMonitoring()
         for handler in statusHandlers {
             handler()
         }

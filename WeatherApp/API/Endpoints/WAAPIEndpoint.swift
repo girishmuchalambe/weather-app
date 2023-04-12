@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal protocol APIEndpoint {
+internal protocol WAAPIEndpoint {
     var pathFragment: String { get }
     var method: RequestMethod { get }
 }

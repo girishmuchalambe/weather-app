@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WeatherEndPoint: APIEndpoint
+enum WAWeatherEndPoint: WAAPIEndpoint
  {
     case getWeather(parameter: String)
     

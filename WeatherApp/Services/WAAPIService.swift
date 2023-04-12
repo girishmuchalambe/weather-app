@@ -16,17 +16,17 @@ public enum RequestMethod: String {
 }
 
 /// This enum is used to return the parsed object on successful execution else error
-enum APIResult<T>{
+enum WAAPIResult<T>{
     case success(T?)
     case failure(Error)
 }
 
 /// This enum is used to return the response data on successful execution else error
-enum APIResponse {
+enum WAAPIResponse {
     case success(data: Data?)
     case failure(error: Error)
 }
-class APIManager {
+class WAAPIService {
     
     private let session: NetworkSession
     init(session: NetworkSession = URLSession.shared) {
@@ -39,8 +39,8 @@ class APIManager {
     ///   - endpoint: This contails path fragment and request method used for creating URLRequest object
     /// - Returns:
     ///   - APIResponse - Contains the response data on successful execution else error
-    func request(from endpoint: APIEndpoint, completionHandler: @escaping (APIResponse) -> Void){
-        let urlString = Constanst.API.BASEURL + endpoint.pathFragment
+    func request(from endpoint: WAAPIEndpoint, completionHandler: @escaping (WAAPIResponse) -> Void){
+        let urlString = WAConstants.API.BASEURL + endpoint.pathFragment
         guard let url = URL(string: urlString) else {
             return
         }
@@ -48,11 +48,11 @@ class APIManager {
         request.httpMethod = endpoint.method.rawValue
         session.loadData(from: request) {[weak self] (data, response, error) in
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200{
-                guard let result = data.map(APIResponse.success) else {return}
+                guard let result = data.map(WAAPIResponse.success) else {return}
                 completionHandler(result)
             } else {
                 guard let apiError = self?.mapError(error: error) else {return}
-                completionHandler(APIResponse.failure(error: apiError))
+                completionHandler(WAAPIResponse.failure(error: apiError))
             }
         }
     }
@@ -68,15 +68,18 @@ class APIManager {
             print("Error code:\(String(describing: error?.code))")
             print("Error description:\(String(describing: error?.localizedDescription))")
         #endif
+        
+        
+        
         let code = error?.code
         var message = ""
         if code == NSURLErrorTimedOut ||
             code == NSURLErrorNotConnectedToInternet ||
             code == NSURLErrorNetworkConnectionLost ||
-            code == NSURLErrorResourceUnavailable || !Reachability.isConnectedToNetwork(){
-            message = NSLocalizedString(Constanst.Messages.NO_INTERNET_CONNECTION, comment: "")
+            code == NSURLErrorResourceUnavailable || WANetworkCheck.shared.currentStatus == .unsatisfied {
+            message = NSLocalizedString(WAConstants.Messages.NO_INTERNET_CONNECTION, comment: "")
         } else {
-            message = NSLocalizedString(Constanst.Messages.API_FAILED_ERROR, comment: "")
+            message = NSLocalizedString(WAConstants.Messages.API_FAILED_ERROR, comment: "")
         }
         return NSError(domain: message, code: code ?? -1)
     }
