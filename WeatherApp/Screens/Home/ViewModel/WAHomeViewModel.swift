@@ -23,8 +23,8 @@ protocol WAHomeViewModelProtocol {
     var humidity: Int { get }
     var visibility: Int { get }
     
-    func fetchWeather(city:String, appKey: String, completionHandler: @escaping (WAAPIResult<Any>) -> Void)
-    func fetchUsersCurrentCity(latitude: Double, longitude: Double, appKey: String, limit:Int, completionHandler: @escaping (WAAPIResult<Any>) -> Void)
+    func fetchWeather(city:String, completionHandler: @escaping (WAAPIResult<Any>) -> Void)
+    func fetchUsersCurrentCity(latitude: Double, longitude: Double, limit:Int, completionHandler: @escaping (WAAPIResult<Any>) -> Void)
     func cellItem(for indexPath: IndexPath) -> WeatherInformation
 }
 
@@ -115,7 +115,7 @@ extension WAHomeViewModel {
     ///
     /// - Returns:
     /// It returns the success or failure based on the response recevied from API
-    func fetchWeather(city:String, appKey: String, completionHandler: @escaping (WAAPIResult<Any>) -> Void) {
+    func fetchWeather(city:String, completionHandler: @escaping (WAAPIResult<Any>) -> Void) {
         guard let cityText = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         let parameters: [String: String] = ["q": cityText,
                                           "units": "metric"]
@@ -144,7 +144,7 @@ extension WAHomeViewModel {
     ///
     /// - Returns:
     /// It returns the success or failure based on the response recevied from API
-    func fetchUsersCurrentCity(latitude: Double, longitude: Double, appKey: String, limit: Int, completionHandler: @escaping (WAAPIResult<Any>) -> Void) {
+    func fetchUsersCurrentCity(latitude: Double, longitude: Double, limit: Int, completionHandler: @escaping (WAAPIResult<Any>) -> Void) {
         let parameters: [String: String] = ["limit": "\(limit)",
                                           "lat": "\(latitude)",
                                           "lon": "\(longitude)"]

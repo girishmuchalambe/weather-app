@@ -26,7 +26,7 @@ final class WAHomeViewModelTests: XCTestCase {
         apiService = WAAPIService(session: session)
         viewModel = WAHomeViewModel(apiService: apiService)
         
-        viewModel.fetchWeather(city: "Zocca", appKey: "1234") { result in
+        viewModel.fetchWeather(city: "Zocca") { result in
             switch result {
             case .success(_):
                 XCTAssertEqual("Zocca", self.viewModel.cityName)
@@ -51,7 +51,7 @@ final class WAHomeViewModelTests: XCTestCase {
         apiService = WAAPIService(session: session)
         viewModel = WAHomeViewModel(apiService: apiService)
         
-        viewModel.fetchUsersCurrentCity(latitude: 11.11, longitude: 11.11, appKey: "1234", limit:1) { result in
+        viewModel.fetchUsersCurrentCity(latitude: 11.11, longitude: 11.11, limit:1) { result in
             switch result {
             case .success(let userLocation):
                 XCTAssertNotNil(userLocation as? WAUserLocationElement)
