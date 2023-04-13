@@ -9,7 +9,9 @@ import Foundation
 
 enum WAWeatherEndPoint: WAAPIEndpoint
  {
+    // Get the weather information from city
     case getWeather(parameters: [String:String])
+    // Get user city from current location
     case getUserLocation(parameters: [String:String])
     
     var pathFragment: String {

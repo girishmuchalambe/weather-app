@@ -44,6 +44,7 @@ class WAHomeViewController: UIViewController {
         }
     }
     
+    // Reload the UI after API response
     private func reloadUI() {
         guard let viewModel = viewModel else { return }
         cityNameLabel?.text = viewModel.cityName
@@ -60,10 +61,12 @@ class WAHomeViewController: UIViewController {
         }
     }
 
+    // Show the error if some issue with the API
     private func showErrorMessage(errorMessage: String) {
         alert(message: errorMessage)
     }
     
+    // Show the weather for current for location when user tap on location icon
     @IBAction func showCurrentLocationWeather() {
         view.endEditing(true)
         fetchWeatherFromUserLocation()
@@ -90,6 +93,7 @@ extension WAHomeViewController {
         })
     }
     
+    // Fetch the weather data using city
     private func fetchWeatherData(withCity city: String) {
         showLoading(message: NSLocalizedString(WAConstants.Messages.LOADING_MESSAGE, comment: ""))
         viewModel?.fetchWeather(city: city, appKey: WAConstants.API.APPKEY, completionHandler: {[weak self] result in
@@ -109,6 +113,7 @@ extension WAHomeViewController {
 
 //MARK: Location state observer
 extension WAHomeViewController {
+    // Observer the location status and fetch the user city if location granted
     private func observeLocation() {
         WALocationService.shared.statusHandlers.append { [weak self] in
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
@@ -119,6 +124,7 @@ extension WAHomeViewController {
 }
 //MARK: Tap Gesture
 extension WAHomeViewController {
+    // Added the tap gesture on view to dimiss the keyboard
     private func addTapGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
