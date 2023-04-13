@@ -40,7 +40,7 @@ class WAAPIService {
     /// - Returns:
     ///   - APIResponse - Contains the response data on successful execution else error
     func request(from endpoint: WAAPIEndpoint, completionHandler: @escaping (WAAPIResponse) -> Void){
-        let urlString = WAConstants.API.BASEURL + endpoint.pathFragment + "&appid=\(WAConstants.API.APPKEY)"
+        let urlString = WAConstants.API.BASEURL + endpoint.pathFragment
         guard let url = URL(string: urlString) else {
             return
         }

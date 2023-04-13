@@ -34,6 +34,7 @@ enum WAWeatherEndPoint: WAAPIEndpoint
         for (key, value) in parameters {
             queryString.append("\(key)=\(value)&")
         }
+        queryString.append("appid=\(WAConstants.API.APPKEY)")
         return queryString
     }
 }

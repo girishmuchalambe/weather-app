@@ -78,7 +78,7 @@ extension WAHomeViewController {
     // TODO: The loading can be improved by showing loading view once and change the message based on API call
     private func fetchWeatherFromUserLocation() {
         guard let viewModel = viewModel else { return }
-        viewModel.fetchUsersCurrentCity(latitude: viewModel.latitude, longitude: viewModel.longitude, appKey: WAConstants.API.APPKEY, limit: 1, completionHandler: {[weak self] result in
+        viewModel.fetchUsersCurrentCity(latitude: viewModel.latitude, longitude: viewModel.longitude, limit: 1, completionHandler: {[weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let userLocation):
@@ -96,7 +96,7 @@ extension WAHomeViewController {
     // Fetch the weather data using city
     private func fetchWeatherData(withCity city: String) {
         showLoading(message: NSLocalizedString(WAConstants.Messages.LOADING_MESSAGE, comment: ""))
-        viewModel?.fetchWeather(city: city, appKey: WAConstants.API.APPKEY, completionHandler: {[weak self] result in
+        viewModel?.fetchWeather(city: city, completionHandler: {[weak self] result in
             guard let self = self else { return }
             self.hideLoading()
             switch result {
