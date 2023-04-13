@@ -21,6 +21,7 @@ class WALocationService: NSObject {
     private var manager = CLLocationManager()
     private var handlers: [LocationUpdated] = []
     
+    // Check location permission granted or not
     var isAuthorized: Bool {
         switch manager.authorizationStatus {
         case .authorizedAlways, .authorizedWhenInUse:
@@ -40,11 +41,12 @@ class WALocationService: NSObject {
         super.init()
         
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        manager.desiredAccuracy = kCLLocationAccuracyKilometer
         manager.pausesLocationUpdatesAutomatically = true
         startMonitoring()
     }
 
+    // Start mornitoring the location
     func startMonitoring() {
         if !isAuthorized {
             manager.stopUpdatingLocation()
@@ -60,6 +62,7 @@ class WALocationService: NSObject {
         }
     }
 
+    // Present the location request popup
     func requestAuthorizationIfNeeded(_ type: LocationUsageType = .whenInUse) {
         switch type {
         case .whenInUse:
@@ -74,6 +77,7 @@ class WALocationService: NSObject {
         handleLocation()
     }
 
+    // Open a setting app if location permission not granted on first attempt
     func openSettings() {
         UIApplication.shared.openURL(string: UIApplication.openSettingsURLString)
     }

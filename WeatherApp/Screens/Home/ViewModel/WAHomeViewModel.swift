@@ -35,6 +35,7 @@ class WAHomeViewModel: WAHomeViewModelProtocol {
     
     init(apiService: WAAPIService = WAAPIService()) {
         self.apiService = apiService
+        // Requested for location authorization
         WALocationService.shared.requestAuthorizationIfNeeded()
     }
     
@@ -95,6 +96,7 @@ class WAHomeViewModel: WAHomeViewModelProtocol {
         tableCellArray[indexPath.row]
     }
     
+    // Created tableview datasource for more information
     private func createTableCellArray() {
         tableCellArray.removeAll()
         if (weatherModel?.wind) != nil {

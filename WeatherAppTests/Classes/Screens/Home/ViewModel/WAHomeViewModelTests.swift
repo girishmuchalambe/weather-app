@@ -30,8 +30,8 @@ final class WAHomeViewModelTests: XCTestCase {
             switch result {
             case .success(_):
                 XCTAssertEqual("Zocca", self.viewModel.cityName)
-                XCTAssertEqual("overcast clouds", self.viewModel.weatherDescription)
-                XCTAssertEqual("280.74 ".appending(WAConstants.Symbol.degree), self.viewModel.currentTemperature)
+                XCTAssertEqual("overcast clouds".capitalized, self.viewModel.weatherDescription)
+                XCTAssertEqual(280.74.degreeString(), self.viewModel.currentTemperature)
             case .failure( _): break
             }
             apiManagerSuccess.fulfill()

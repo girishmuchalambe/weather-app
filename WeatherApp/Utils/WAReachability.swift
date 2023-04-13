@@ -12,7 +12,7 @@ import Network
 protocol WANetworkCheckObserver: AnyObject {
     func statusDidChange(status: NWPath.Status)
 }
-
+// This class is used to check the network connect
 class WANetworkCheck {
 
     struct WANetworkChangeObservation {
